@@ -52,20 +52,23 @@ class TestFileStorageDocs(unittest.TestCase):
 
     def test_doc_new(self):
         """... documentation for new function"""
-        expected = "sets / updates in __objects the obj with key <obj class " "name>.id"
+        expected =
+        "sets / updates in __objects the obj with key <obj class " "name>.id"
         actual = FileStorage.new.__doc__
         self.assertEqual(expected, actual)
 
     def test_doc_save(self):
         """... documentation for save function"""
-        expected = "serializes __objects to the JSON file (path: __file_path)"
+        expected = "serializes __objects to the JSON file /(path: __file_path)"
         actual = FileStorage.save.__doc__
         self.assertEqual(expected, actual)
 
     def test_doc_reload(self):
         """... documentation for reload function"""
         expected = (
-            "if file exists, deserializes JSON file to __objects, " "else nothing"
+            """if file exists,deserializes JSON file to __objects,
+             " "else nothing
+             """
         )
         actual = FileStorage.reload.__doc__
         self.assertEqual(expected, actual)
