@@ -2,9 +2,8 @@
 """
 app
 """
-
 from flask import Flask, jsonify
-"""from flask_cors import CORS"""
+from flask_cors import CORS
 from os import getenv
 from models import storage
 from api.v1.views import app_views
@@ -12,7 +11,7 @@ from api.v1.views import app_views
 
 app = Flask(__name__)
 
-"""CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})"""
+CORS(app, resources={r"/*": {"origins": "0.0.0.0"}})
 
 app.register_blueprint(app_views)
 
@@ -38,9 +37,10 @@ def handle_404(exception):
     resp = jsonify(data)
     resp.status_code = 404
 
-    return(resp)
+    return (resp)
+
 
 if __name__ == "__main__":
-    HOST =getenv('HBNB_API_HOST', '0.0.0.0')
+    HOST = getenv('HBNB_API_HOST', '0.0.0.0')
     PORT = int(getenv('HBNB_API_PORT', 5000))
     app.run(hosts=HOST, port=PORT, threaded=True)
