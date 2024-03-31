@@ -8,8 +8,7 @@ from os import getenv
 from api.v1.views import app_views, storage
 
 
-@app_views.route("/places/<place_id>/amenities",
-                 methods=["GET"],
+@app_views.route("/places/<place_id>/amenities", methods=["GET"],
                  strict_slashes=False)
 def amenity_by_place(place_id):
     """
@@ -30,9 +29,11 @@ def amenity_by_place(place_id):
     return jsonify(all_amenities)
 
 
-@app_views.route("/places/<place_id>/amenities/<amenity_id>",
-                 methods=["DELETE"],
-                 strict_slashes=False)
+@app_views.route(
+    "/places/<place_id>/amenities/<amenity_id>",
+    methods=["DELETE"],
+    strict_slashes=False,
+)
 def unlink_amenity_from_place(place_id, amenity_id):
     """
     unlinks an amenity in a place
@@ -66,9 +67,10 @@ def unlink_amenity_from_place(place_id, amenity_id):
         return resp
 
 
-@app_views.route("/places/<place_id>/amenities/<amenity_id>",
-                 methods=["POST"],
-                 strict_slashes=False)
+@app_views.route(
+    "/places/<place_id>/amenities/<amenity_id>", methods=["POST"],
+    strict_slashes=False
+)
 def link_amenity_to_place(place_id, amenity_id):
     """
     links a amenity with a place
