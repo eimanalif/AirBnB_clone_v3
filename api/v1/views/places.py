@@ -7,8 +7,7 @@ from api.v1.views import app_views, storage
 from models.place import Place
 
 
-@app_views.route("/cities/<city_id>/places", methods=["GET"],
-                 strict_slashes=False)
+@app_views.route("/cities/<city_id>/places", methods=["GET"], strict_slashes=False)
 def places_by_city(city_id):
     """
     retrieves all Place objects by city
@@ -22,8 +21,7 @@ def places_by_city(city_id):
     return jsonify(place_list)
 
 
-@app_views.route("/cities/<city_id>/places", methods=["POST"],
-                 strict_slashes=False)
+@app_views.route("/cities/<city_id>/places", methods=["POST"], strict_slashes=False)
 def place_create(city_id):
     """
     create place route
@@ -93,8 +91,7 @@ def place_put(place_id):
     return jsonify(fetched_obj.to_json())
 
 
-@app_views.route("/places/<place_id>", methods=["DELETE"],
-                 strict_slashes=False)
+@app_views.route("/places/<place_id>", methods=["DELETE"], strict_slashes=False)
 def place_delete_by_id(place_id):
     """
     deletes Place by id
