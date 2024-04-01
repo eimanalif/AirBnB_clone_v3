@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-app
+app to run an api for hbnb
 """
 
 from os import getenv
